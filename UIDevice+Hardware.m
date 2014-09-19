@@ -16,7 +16,7 @@
     size_t size = 100;
     sysctl(name, 2, NULL, &size, NULL, 0); // getting size of answer
     char *hw_machine = malloc(size);
-
+    
     sysctl(name, 2, hw_machine, &size, NULL, 0);
     NSString *hardware = [NSString stringWithUTF8String:hw_machine];
     free(hw_machine);
@@ -132,10 +132,11 @@
     
     NSLog(@"This is a device which is not listed in this category. Please visit https://github.com/inderkumarrathore/UIDevice-Hardware and add a comment there.");
     NSLog(@"Your device hardware string is: %@", hardware);
-    if ([hardware hasPrefix:@"iPhone"]) return @"iPhone";
-    if ([hardware hasPrefix:@"iPod"]) return @"iPod";
-    if ([hardware hasPrefix:@"iPad"]) return @"iPad";
-    return nil;
+    
+    if (hardware) {
+        return hardware;
+    }
+    return @"Unkown";
 }
 
 - (NSString*)hardwareSimpleDescription
@@ -188,11 +189,10 @@
     NSLog(@"This is a device which is not listed in this category. Please visit https://github.com/inderkumarrathore/UIDevice-Hardware and add a comment there.");
     NSLog(@"Your device hardware string is: %@", hardware);
     
-    if ([hardware hasPrefix:@"iPhone"]) return @"iPhone";
-    if ([hardware hasPrefix:@"iPod"]) return @"iPod";
-    if ([hardware hasPrefix:@"iPad"]) return @"iPad";
-    
-    return nil;
+    if (hardware) {
+        return hardware;
+    }
+    return @"Unkown";
 }
 
 

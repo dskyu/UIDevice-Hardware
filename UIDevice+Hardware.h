@@ -83,7 +83,7 @@ typedef enum
 /** This method returns YES if the current device is better than the hardware passed */
 - (BOOL)isCurrentDeviceHardwareBetterThan:(Hardware)hardware;
 
-/** This method returns the resolution for still image that can be received 
+/** This method returns the resolution for still image that can be received
  from back camera of the current device. Resolution returned for image oriented landscape right. **/
 - (CGSize)backCameraStillImageResolutionInPixels;
 
