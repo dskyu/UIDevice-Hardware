@@ -34,6 +34,8 @@ typedef enum
     IPHONE_5C_CDMA_GSM,
     IPHONE_5S,
     IPHONE_5S_CDMA_GSM,
+    IPHONE_6,
+    IPHONE_6_PLUS,
     
     IPOD_TOUCH_1G,
     IPOD_TOUCH_2G,
@@ -76,9 +78,6 @@ typedef enum
 
 /** This method returns the readable description of hardware string */
 - (NSString*)hardwareDescription;
-
-/** This method returs the readble description without identifier (GSM, CDMA, GLOBAL) */
-- (NSString *)hardwareSimpleDescription;
 
 /** This method returns YES if the current device is better than the hardware passed */
 - (BOOL)isCurrentDeviceHardwareBetterThan:(Hardware)hardware;

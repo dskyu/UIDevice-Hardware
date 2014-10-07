@@ -51,6 +51,8 @@
     if ([hardware isEqualToString:@"iPhone5,4"])    return IPHONE_5C_CDMA_GSM;
     if ([hardware isEqualToString:@"iPhone6,1"])    return IPHONE_5S;
     if ([hardware isEqualToString:@"iPhone6,2"])    return IPHONE_5S_CDMA_GSM;
+    if ([hardware isEqualToString:@"iPhone7,1"])    return IPHONE_6;
+    if ([hardware isEqualToString:@"iPhone7,2"])    return IPHONE_6_PLUS;
     
     if ([hardware isEqualToString:@"iPod1,1"])      return IPOD_TOUCH_1G;
     if ([hardware isEqualToString:@"iPod2,1"])      return IPOD_TOUCH_2G;
@@ -100,6 +102,8 @@
     if ([hardware isEqualToString:@"iPhone5,4"])    return @"iPhone 5C (Global)";
     if ([hardware isEqualToString:@"iPhone6,1"])    return @"iPhone 5S (GSM)";
     if ([hardware isEqualToString:@"iPhone6,2"])    return @"iPhone 5S (Global)";
+    if ([hardware isEqualToString:@"iPhone7,1"])    return @"iPhone 6 Plus";
+    if ([hardware isEqualToString:@"iPhone7,2"])    return @"iPhone 6";
     
     if ([hardware isEqualToString:@"iPod1,1"])      return @"iPod Touch (1 Gen)";
     if ([hardware isEqualToString:@"iPod2,1"])      return @"iPod Touch (2 Gen)";
@@ -139,63 +143,6 @@
     return @"Unkown";
 }
 
-- (NSString*)hardwareSimpleDescription
-{
-    NSString *hardware = [self hardwareString];
-    if ([hardware isEqualToString:@"iPhone1,1"])    return @"iPhone 2G";
-    if ([hardware isEqualToString:@"iPhone1,2"])    return @"iPhone 3G";
-    if ([hardware isEqualToString:@"iPhone2,1"])    return @"iPhone 3GS";
-    if ([hardware isEqualToString:@"iPhone3,1"])    return @"iPhone 4";
-    if ([hardware isEqualToString:@"iPhone3,2"])    return @"iPhone 4";
-    if ([hardware isEqualToString:@"iPhone3,3"])    return @"iPhone 4";
-    if ([hardware isEqualToString:@"iPhone4,1"])    return @"iPhone 4S";
-    if ([hardware isEqualToString:@"iPhone5,1"])    return @"iPhone 5";
-    if ([hardware isEqualToString:@"iPhone5,2"])    return @"iPhone 5";
-    if ([hardware isEqualToString:@"iPhone5,3"])    return @"iPhone 5C";
-    if ([hardware isEqualToString:@"iPhone5,4"])    return @"iPhone 5C";
-    if ([hardware isEqualToString:@"iPhone6,1"])    return @"iPhone 5S";
-    if ([hardware isEqualToString:@"iPhone6,2"])    return @"iPhone 5S";
-    
-    if ([hardware isEqualToString:@"iPod1,1"])      return @"iPod Touch (1 Gen)";
-    if ([hardware isEqualToString:@"iPod2,1"])      return @"iPod Touch (2 Gen)";
-    if ([hardware isEqualToString:@"iPod3,1"])      return @"iPod Touch (3 Gen)";
-    if ([hardware isEqualToString:@"iPod4,1"])      return @"iPod Touch (4 Gen)";
-    if ([hardware isEqualToString:@"iPod5,1"])      return @"iPod Touch (5 Gen)";
-    
-    if ([hardware isEqualToString:@"iPad1,1"])      return @"iPad";
-    if ([hardware isEqualToString:@"iPad1,2"])      return @"iPad";
-    if ([hardware isEqualToString:@"iPad2,1"])      return @"iPad 2";
-    if ([hardware isEqualToString:@"iPad2,2"])      return @"iPad 2";
-    if ([hardware isEqualToString:@"iPad2,3"])      return @"iPad 2";
-    if ([hardware isEqualToString:@"iPad2,4"])      return @"iPad 2";
-    if ([hardware isEqualToString:@"iPad2,5"])      return @"iPad Mini";
-    if ([hardware isEqualToString:@"iPad2,6"])      return @"iPad Mini";
-    if ([hardware isEqualToString:@"iPad2,7"])      return @"iPad Mini";
-    if ([hardware isEqualToString:@"iPad3,1"])      return @"iPad 3";
-    if ([hardware isEqualToString:@"iPad3,2"])      return @"iPad 3";
-    if ([hardware isEqualToString:@"iPad3,3"])      return @"iPad 3";
-    if ([hardware isEqualToString:@"iPad3,4"])      return @"iPad 4";
-    if ([hardware isEqualToString:@"iPad3,5"])      return @"iPad 4";
-    if ([hardware isEqualToString:@"iPad3,6"])      return @"iPad 4";
-    if ([hardware isEqualToString:@"iPad4,1"])      return @"iPad Air";
-    if ([hardware isEqualToString:@"iPad4,2"])      return @"iPad Air";
-    if ([hardware isEqualToString:@"iPad4,3"])      return @"iPad Air";
-    if ([hardware isEqualToString:@"iPad4,4"])      return @"iPad Mini Retina";
-    if ([hardware isEqualToString:@"iPad4,5"])      return @"iPad Mini Retina";
-    
-    if ([hardware isEqualToString:@"i386"])         return @"Simulator";
-    if ([hardware isEqualToString:@"x86_64"])       return @"Simulator";
-    
-    NSLog(@"This is a device which is not listed in this category. Please visit https://github.com/inderkumarrathore/UIDevice-Hardware and add a comment there.");
-    NSLog(@"Your device hardware string is: %@", hardware);
-    
-    if (hardware) {
-        return hardware;
-    }
-    return @"Unkown";
-}
-
-
 - (float)hardwareNumber:(Hardware)hardware {
     switch (hardware) {
         case IPHONE_2G: return 1.1f;
@@ -210,6 +157,8 @@
         case IPHONE_5C_CDMA_GSM:    return 5.4f;
         case IPHONE_5S:    return 6.1f;
         case IPHONE_5S_CDMA_GSM:    return 6.2f;
+        case IPHONE_6:    return 7.1f;
+        case IPHONE_6_PLUS:    return 7.2f;
             
         case IPOD_TOUCH_1G:    return 1.1f;
         case IPOD_TOUCH_2G:    return 2.1f;
@@ -274,6 +223,8 @@
         case IPHONE_5_CDMA_GSM:
         case IPHONE_5C:
         case IPHONE_5C_CDMA_GSM:
+        case IPHONE_6:
+        case IPHONE_6_PLUS:
             return CGSizeMake(3264, 2448);
             break;
             
